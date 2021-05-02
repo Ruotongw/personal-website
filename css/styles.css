@@ -1,0 +1,96 @@
+/* The side navigation menu */
+.sidebar {
+  margin: 0;
+  padding: 0;
+  width: 18%;
+  position: fixed;
+  height: 100%;
+  overflow: auto;
+}
+
+/* Sidebar links */
+.sidebar a {
+  display: block;
+  color: black;
+  padding: 16px;
+  text-decoration: none;
+}
+
+.body-content {
+  padding-top: 50px;
+  padding-right: 30px;
+  padding-bottom: 50px;
+  padding-left: 80px;
+}
+
+h2 {
+  font-family: 'Noto Serif KR', serif;
+  color: #33272a;
+  padding-bottom: 10px;
+}
+
+h3 {
+  font-family: 'Noto Serif KR', serif;
+  color: #33272a;
+}
+
+img {
+  width: 70%
+}
+
+p {
+  font-family: 'Lato', sans-serif;
+  color: #33272a;
+}
+
+body {
+  background: #faeee7;
+}
+
+a {
+  color: #ff8ba7;
+}
+
+.text-muted {
+  font-family: 'Roboto Mono', monospace;
+}
+
+.container-fluid {
+  padding-bottom: 10px;
+}
+
+hr {
+  margin-bottom: 26px;
+}
+
+/* Page content. The value of the margin-left property should match the value of the sidebar's width property */
+div.content {
+  margin-left: 20%;
+  padding: 1px 16px;
+  height: 1000px;
+}
+
+/* On screens that are less than 700px wide, make the sidebar into a topbar */
+@media screen and (max-width: 700px) {
+  .sidebar {
+    width: 100%;
+    height: auto;
+    position: relative;
+  }
+  .sidebar a {float: left;}
+  div.content {margin-left: 0; padding-left: 0}
+  img {width: 20%}
+  .body-content {
+    padding-left: 10%
+  }
+  h3 {font-size: 85%}
+}
+
+/* On screens that are less than 400px, display the bar vertically, instead of horizontally */
+@media screen and (max-width: 590px) {
+  .sidebar a {
+    text-align: center;
+    float: none;
+  }
+  img {display: block; margin-left: auto; margin-right: auto; width: 30%;}
+}
