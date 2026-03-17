@@ -145,9 +145,11 @@ Each entry: `display: flex; gap: 20px`
   - Award badge (if applicable): `🏆 Best Paper Honorable Mention`, terracotta pill
   - Links: `[arXiv]`, `[PDF]`, `[ACM DL]`, `[Video]` etc. in 10px monospace primary color
 
-### All 12 Publications (in order, newest first)
+### All Publications (in order, newest first)
 
-Full titles, authors, venue, and links are sourced from `index.html` in the current site root. Implementer should copy them verbatim.
+The authoritative source for the publication list is Google Scholar: https://scholar.google.com/citations?hl=en&user=CoG7C_YAAAAJ&view_op=list_works&sortby=pubdate
+
+The implementer must fetch this page and use it as the canonical list, supplementing with full author lists, venue names, and links (arXiv, PDF, ACM DL, Video, etc.) from `index.html` in the current site root. Any papers present on Google Scholar but absent from `index.html` should be included with whatever metadata is available. The count of 12 below reflects the current site at time of spec; the final count may differ after cross-checking Scholar.
 1. Social-RAG — CHI 2025
 2. Meeting Bridges — CSCW 2024
 3. Investigating and designing for trust in AI-powered code generation tools — FAccT 2024
@@ -181,7 +183,7 @@ Post list is dynamically built from `import.meta.glob('../../content/posts/*.mdx
 - Title: EB Garamond 36px bold
 - Date: DM Sans 11px uppercase muted
 - Body: EB Garamond 18px, line-height 1.8
-- Headings (h2, h3): DM Sans bold
+- Headings (h1, h2, h3): DM Sans bold
 - Supports MDX features: bold, italic, inline code, code blocks, blockquotes, links
 
 ### Post Page Layout
@@ -189,7 +191,7 @@ Post list is dynamically built from `import.meta.glob('../../content/posts/*.mdx
 - Outer container: `max-width: 960px`, horizontally centered, same padding as home page
 - On **≥ 1024px**: two-column flex row — main content (`flex: 1`, max-width ~680px) + sticky TOC sidebar (`width: 200px`, `position: sticky; top: 2rem`)
 - On **< 1024px**: single column; TOC sidebar is hidden entirely
-- TOC sidebar: DM Sans 13px, lists all `h2` headings in the post, highlights the active heading via IntersectionObserver (same pattern as template's existing `Post.tsx`)
+- TOC sidebar: DM Sans 13px, lists all `h1`, `h2`, and `h3` headings in the post. `h1` entries are full weight, `h2` are indented one level, `h3` are indented two levels. The active heading — determined by IntersectionObserver watching the corresponding section — is rendered in bold/foreground color; all others are muted. Only one heading is active at a time (the topmost visible one).
 
 ---
 
